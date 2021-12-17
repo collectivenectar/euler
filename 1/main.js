@@ -1,26 +1,15 @@
 // sum of all multiples of 3 or 5 below 1000
 
-var sumOfAllMultiplesOf3 = 0;
-var sumOfAllMultiplesOf5 = 0;
+var sumOfAll = 0;
 
-function checkMultiplesFive(){
-    for (let i = 0; i < 1000; i++){
-        if (i % 5 == 0){
-            sumOfAllMultiplesOf5 += i;
-        }
-    
-    }
-}
-function checkMultiplesThree(){
-    for (let i = 0; i < 1000; i++){
+function checkMultiplesFiveAndThree(endpoint){
+    for (let i = 0; i < endpoint; i++){
         if (i % 3 == 0){
-            sumOfAllMultiplesOf3 += i;
+            sumOfAll += i;
+        } else if (i % 5 == 0){
+            sumOfAll += i;
         }
     }
 }
-function testing(){
-    console.log("hello");
-}
-checkMultiplesFive();
-checkMultiplesThree();
-console.log(sumOfAllMultiplesOf3, ", ", sumOfAllMultiplesOf5)
+checkMultiplesFiveAndThree(1000)
+console.log(sumOfAll)
