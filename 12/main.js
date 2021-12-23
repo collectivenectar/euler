@@ -13,4 +13,33 @@
 // 28: 1,2,4,7,14,28
 // We can see that 28 is the first triangle number to have over five divisors.
 
-// What is the value of the first triangle number to have over five hundred divisors?
+// What is the value of the first triangle number to have over five hundred divisors;
+
+function checkNumDivisors(){
+    for (let i = 5000; i < 20000; i++){
+        let nThTriangleNum = (i * (i + 1)) / 2;
+        let divisors = [1];
+        for (let i = 2; i <= Math.sqrt(nThTriangleNum); i++){
+            if (divisors.includes(i)){
+                
+            }
+            else {
+                if (nThTriangleNum % i == 0){
+                    if (i * i != nThTriangleNum){
+                        divisors.push(i);
+                        divisors.push(nThTriangleNum / i);
+                    }
+                    else{
+                        divisors.push(i);
+                    }
+                }
+            }
+        }
+        if (divisors.length > 500){
+            console.log(nThTriangleNum, ", ", divisors.length, i);
+            break;
+        }
+        
+    }
+}
+checkNumDivisors();
