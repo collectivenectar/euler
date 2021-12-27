@@ -11,3 +11,34 @@
 // Which starting number, under one million, produces the longest chain?
 
 // NOTE: Once the chain starts the terms are allowed to go above one million.
+let longestChain = 0;
+let longestChainNumber = 0;
+
+
+function incrementNumber(somelimit){
+  for (let i = 1; i < somelimit; i++){
+    calculateChainLength(i);
+  }
+}
+
+function calculateChainLength(somenumber){
+  let chainLength = 1;
+  let chainLink = 0;
+  chainLink += somenumber;
+  do {
+    if (chainLink % 2 == 0){
+      chainLength += 1;
+      chainLink /= 2;
+    } else {
+      chainLength += 1;
+      let newValue = (3 * chainLink) + 1;
+      chainLink = newValue;
+  }} while (chainLink > 1);
+  if (chainLength > longestChain){
+    longestChain = chainLength;
+    longestChainNumber = somenumber;
+  }
+}
+
+incrementNumber(1000000);
+console.log(longestChainNumber, ", ", longestChain);
